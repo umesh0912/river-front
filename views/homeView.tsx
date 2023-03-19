@@ -2,28 +2,22 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Box, Container } from "@mui/system";
-import react, { useState } from "react";
+import { Box } from "@mui/system";
+import { useState } from "react";
 
 // icons
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import StarsIcon from "@mui/icons-material/Stars";
-import InterpreterModeIcon from "@mui/icons-material/InterpreterMode";
-import StarIcon from "@mui/icons-material/Star";
 import CircleIcon from "@mui/icons-material/Circle";
 
 // images
 import test from "../public/images/slideTwo.jpeg";
 import Image from "next/image";
-import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import {
-  Alert,
   Backdrop,
   Fade,
-  IconButton,
   Modal,
-  Snackbar,
 } from "@mui/material";
 import Gym from "../public/images/gym.svg";
 import Libary from "../public/images/libary.svg";
@@ -45,6 +39,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import BrandLogo from "../public/images/brandLogo.png";
 import AboutUs from "../public/images/aboutUs.jpg";
 import MyRiver from "../public/images/MyRiver.jpg";
+import MyRiver5 from "../public/images/MyRiver5.jpg";
+import MyRiver6 from "../public/images/MyRiver6.jpg";
+import MyRiver7 from "../public/images/MyRiver7.jpg";
+import MyRiver8 from "../public/images/MyRiver8.jpg";
+import LocationLeft from "../public/images/location-left.jpg";
+import LocationRight from "../public/images/location-right.jpg";
+
+import Register from "@/components/register";
 
 const style = {
   position: "absolute" as "absolute",
@@ -79,9 +81,9 @@ export default function HomeView() {
       pointOne: "Individual 7/12 with Legal Ownership",
       pointTwo: "Project Sanctioned by Town Planning",
       pointThree: "BE Compound Wall with Gate",
-      pointFour: "Landscape Garden with Decorative Lighting",
+      pointFour: "Landscape Garden with Decorative Lighting and Ambience",
       pointFive: "Open Parking",
-      link: <Image src={test} height={200} width={400} alt="floorPLan" layout='responsive'/>,
+      link: <Image src={test} height={200} width={400} alt="floorPLan" layout="responsive"/>,
     },
     {
       id: 2,
@@ -92,21 +94,10 @@ export default function HomeView() {
       pointThree: "Composite Marble Window Frames",
       pointFour: "Elegant Laminated Door with a Godrej Lock",
       pointFive: "Sanitary and Bathroom Fitting from Jaguar",
-      link: <Image src={test} height={200} width={400} alt="floorPLan" layout='responsive'/>,
+      link: <Image src={MyRiver6} height={200} width={400} alt="floorPLan" layout="responsive"/>,
     },
     {
       id: 3,
-      title: "Pool Villa Amenitie",
-      floorPlanType: "1 RK",
-      pointOne: "Flooring 4 X 4 DGVT",
-      pointTwo: "Bathroom Tile 2 X 4 DGVT",
-      pointThree: "Composite Marble Window Frames",
-      pointFour: "Elegant Laminated Door with a Godrej Lock",
-      pointFive: "Sanitary and Bathroom Fitting from Jaguar",
-      link: <Image src={test} height={200} width={400} alt="floorPLan" layout='responsive'/>,
-    },
-    {
-      id: 4,
       title: "Studio Apartment Amenities",
       floorPlanType: "1 RK",
       pointOne: "Branded Fully Automatic Lift",
@@ -114,7 +105,7 @@ export default function HomeView() {
       pointThree: "Landscaped Garden with Fountain & Water Bodie",
       pointFour: "Fully Furnished Studio Furniture & Gadgets",
       pointFive: "Open parking",
-      link: <Image src={test} height={200} width={400} alt="floorPLan" layout='responsive'/>,
+      link: <Image src={MyRiver5} height={200} width={400} alt="floorPLan" layout="responsive"/>,
     },
   ];
 
@@ -141,103 +132,80 @@ export default function HomeView() {
       icon: <Image src={Bar} height={120} width={120} alt="gym" />,
     },
     {
-      id: 5,
+      id: 6,
       title: "River Side Dining",
       icon: <Image src={RiverSide} height={120} width={120} alt="gym" />,
     },
 
     {
-      id: 6,
+      id: 7,
       title: "CCTV Cameras and 24 X 7 Security at Main Gate",
       icon: <Image src={CCTV} height={120} width={120} alt="gym" />,
     },
     {
-      id: 7,
+      id: 8,
       title: "Jogging, Walking and Cycling Track",
       icon: <Image src={Jogging} height={120} width={120} alt="gym" />,
     },
 
     {
-      id: 11,
+      id: 9,
       title: "Party Lawns",
       icon: <Image src={PartyLawns} height={120} width={120} alt="gym" />,
     },
     {
-      id: 12,
+      id: 10,
       title: "Children Play Area",
       icon: <Image src={KidsPlayArea} height={120} width={120} alt="gym" />,
     },
     {
-      id: 13,
+      id: 11,
       title: "Fountain with Seat Out Area",
       icon: <Image src={SeatOutArea} height={120} width={120} alt="gym" />,
     },
     {
-      id: 20,
+      id: 12,
       title: "Camping Site for Tents",
       icon: <Image src={Camping} height={120} width={120} alt="gym" />,
     },
     {
-      id: 21,
+      id: 13,
       title: "Star Gazing Area",
       icon: <Image src={StarGazing} height={120} width={120} alt="gym" />,
     },
     {
-      id: 22,
+      id: 14,
       title: "Meditation Deck",
       icon: <Image src={Meditation} height={120} width={120} alt="gym" />,
     },
     {
-      id: 23,
+      id: 15,
       title: "Yoga Lawns",
       icon: <Image src={Yoga} height={120} width={120} alt="gym" />,
     },
     {
-      id: 25,
+      id: 16,
       title: "Bonfire Area",
       icon: <Image src={Bonfire} height={120} width={120} alt="gym" />,
     },
     {
-      id: 30,
+      id: 17,
       title: "Music Room",
       icon: <Image src={Music} height={120} width={120} alt="gym" />,
     },
   ];
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(null);
   const [openEnquiryForm, setOpenEnquiryForm] = useState(false);
-  const [openToast, setOpenToast] = useState(false);
+  const [openBrochureForm, setOpenBrochureForm] = useState(false);
+  
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = (imageElement: any) => setOpen(imageElement);
+  const handleClose = () => setOpen(null);
   const handleOpenEnquiryForm = () => setOpenEnquiryForm(true);
   const handleCloseEnquiryForm = () => setOpenEnquiryForm(false);
-  const onSubmitClick = () => {
-    setOpenToast(true);
-  };
 
-  const handleCloseToast = (
-    event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpenToast(false);
-  };
-
-  const action = (
-    <>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleCloseToast}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </>
-  );
+  const handleOpenBrochureForm = () => setOpenBrochureForm(true);
+  const handleCloseBrochureForm = () => setOpenBrochureForm(false);
 
   return (
     <>
@@ -271,18 +239,26 @@ export default function HomeView() {
             <Box>
               <Button
                 onClick={handleOpenEnquiryForm}
-                sx={{ borderRadius: "3rem" }}
+                sx={{ borderRadius: "3rem", marginLeft: '1rem', textTransform:'Capitalize' }}
                 startIcon={<ExitToAppIcon />}
                 variant="contained"
               >
-                Register Now
+                Enquiry
+              </Button>
+              <Button
+                onClick={handleOpenBrochureForm}
+                sx={{ borderRadius: "3rem", marginLeft: '1rem', textTransform:'Capitalize' }}
+                startIcon={<ExitToAppIcon />}
+                variant="contained"
+              >
+                Download brochure
               </Button>
             </Box>
           </Stack>
         </Grid>
 
         <Grid item md={6} xs={12} sx={{paddingTop:{xs:"1rem"}}} >
-          <Image src={MyRiver} alt="test" height={400} width={850} layout='responsive'/>
+          <Image src={MyRiver} alt="test" height={400} width={850} layout="responsive"/>
         </Grid>
       </Grid>
       {/* intro */}
@@ -291,6 +267,7 @@ export default function HomeView() {
       <Grid
         container
         pb="5rem"
+        id="AboutUs"
         sx={{
           display: "flex",
           alignItems: "center",
@@ -309,7 +286,7 @@ export default function HomeView() {
         </Grid>
         <Grid item md={6} xs={12} textAlign="center">
           <Box>
-            <Image src={AboutUs} alt="test" layout='responsive'/>
+            <Image src={AboutUs} alt="test" layout="responsive"/>
           </Box>
         </Grid>
 
@@ -384,7 +361,7 @@ export default function HomeView() {
       {/* about us */}
 
       {/* contact us */}
-      <Grid
+      {/* <Grid
         container
         textAlign="center"
         sx={{ background: "#FCA311", paddingX: { md: "3rem", xs: "1rem" } }}
@@ -453,23 +430,26 @@ export default function HomeView() {
             </Button>
           </Stack>
         </Grid>
-      </Grid>
+      </Grid> */}
       {/* contact us */}
 
       {/* floor plan */}
-      <Grid container spacing={3} sx={{ paddingX: { md: "3rem", xs: "1rem" } }}>
+      <Grid container spacing={3} sx={{ paddingX: { md: "3rem", xs: "1rem" }, display:'flex', alignItems:'center',justifyContent:'center' }}>
         <Grid item md={12} xs={12}>
           <Typography
             className="title"
             variant="h1"
             textAlign="center"
             py="2rem"
+            id="FloorPlan"
           >
             Floor Plans
           </Typography>
         </Grid>
         {floorPlaningData.map((item) => (
-          <Grid item md={3} xs={12}>
+          <Grid item md={3} xs={12} key={item.id} sx={{
+            display: 'flex', alignItems:'center',justifyContent: 'space-around'
+          }}>
             <Paper sx={{ p: 2 }}>
               <Stack direction="row" pt={2} pb={4}>
                 <Typography variant="h3">{item.title}</Typography>
@@ -511,20 +491,19 @@ export default function HomeView() {
                   </Typography>
                 </Stack>
 
-                <Button variant="contained" onClick={handleOpen}>
+                <Button variant="contained" onClick={() => handleOpen(item.link)}>
                   View More
                 </Button>
               </Stack>
             </Paper>
           </Grid>
         ))}
-
-        {floorPlaningData.map((item) => (
-          <Box>
+        {/* {floorPlaningData.map((item) => ( */}
+        {open ? <Box>
             <Modal
               aria-labelledby="transition-modal-title"
               aria-describedby="transition-modal-description"
-              open={open}
+              open={true}
               onClose={handleClose}
               closeAfterTransition
               slots={{ backdrop: Backdrop }}
@@ -534,14 +513,14 @@ export default function HomeView() {
                 },
               }}
             >
-              <Fade in={open}>
+              <Fade in={true}>
                 <Box sx={style}>
-                  <Box sx={{ textAlign: "center" }}>{item.link}</Box>
+                  <Box sx={{ textAlign: "center" }}>{open}</Box>
                 </Box>
               </Fade>
             </Modal>
-          </Box>
-        ))}
+          </Box> : null}
+        {/* ))} */}
       </Grid>
       {/* floor plan */}
 
@@ -553,12 +532,13 @@ export default function HomeView() {
             py="2rem"
             variant="h1"
             textAlign="center"
+            id="Amenities"
           >
             Amenities
           </Typography>
         </Grid>
         {amenitiesData.map((item) => (
-          <Grid item md={2} xs={12} textAlign="center">
+          <Grid item md={2} xs={12} textAlign="center" key={item.id}>
             <Stack direction="column">
               <Box>{item.icon}</Box>
               <Typography variant="h4">{item.title}</Typography>
@@ -576,24 +556,25 @@ export default function HomeView() {
             py="2rem"
             variant="h1"
             textAlign="center"
+            id="Gallery"
           >
             Gallery
           </Typography>
         </Grid>
         <Grid item md={3}>
-          <Image src={test} alt="test" height={200} width={400} layout='responsive'/>
+          <Image src={MyRiver5} alt="test" height={200} width={400} layout="responsive"/>
         </Grid>
 
         <Grid item md={3}>
-          <Image src={test} alt="test" height={200} width={400} layout='responsive'/>
+          <Image src={MyRiver6} alt="test" height={200} width={400} layout="responsive"/>
         </Grid>
 
         <Grid item md={3}>
-          <Image src={test} alt="test" height={200} width={400} layout='responsive'/>
+          <Image src={MyRiver7} alt="test" height={200} width={400} layout="responsive"/>
         </Grid>
 
         <Grid item md={3}>
-          <Image src={test} alt="test" height={200} width={400} layout='responsive'/>
+          <Image src={MyRiver8} alt="test" height={200} width={400} layout="responsive" />
         </Grid>
       </Grid>
       {/* image gallery */}
@@ -602,7 +583,7 @@ export default function HomeView() {
       <Grid container py="5rem" textAlign="center">
         <Grid item md={12} sx={{ paddingX: { md: "10rem" } }}>
           <Typography variant="h2">A Project By</Typography>
-          <Image src={BrandLogo} height={200} width={250} alt="brandLogo"/>
+          <Image src={BrandLogo} height={200} width={250} alt="brandLogo" layout="responsive"/>
           <Typography variant="h4">
             Site Address : S. No. 14/5/A, Kondewade, Karjat, Pin - 410201, Tal.
             Karjat, Dist. Raigad Office Add.: 102, B - Wing, Motibhai Tower,
@@ -638,66 +619,50 @@ export default function HomeView() {
       </Grid>
       {/* footer */}
 
-      {/* registration Modal */}
-      <Modal
-        open={openEnquiryForm}
-        onClose={handleCloseEnquiryForm}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        
+      {/* about us */}
+      <Grid
+        container
+        pb="5rem"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          paddingX: { md: "3rem", xs: "1rem" },
+        }}
       >
-        <Box sx={style2} textAlign="center">
-          <Typography variant="h3" py="2rem">
-            Register Now
+        <Grid item md={12} xs={12}>
+          <Typography
+            className="title"
+            variant="h1"
+            textAlign="center"
+            py="2rem"
+          >
+            Location
           </Typography>
+        </Grid>
+        <Grid item md={12} xs={12} textAlign="center">
+          <Box>
+            <Image src={LocationLeft} alt="test" layout="responsive"/>
+          </Box>
+        </Grid>
+        <Grid item md={12} xs={12} textAlign="center">
+          <Box>
+            <Image src={LocationRight} alt="test" layout="responsive"/>
+          </Box>
+        </Grid>
 
-          <Stack direction="column" spacing={5}>
-            <TextField
-              placeholder="Name"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "3rem",
-                },
-              }}
-            />
+      </Grid>
+      {/* about us */}
 
-            <TextField
-              placeholder="Email"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "3rem",
-                },
-              }}
-            />
 
-            <TextField
-              placeholder="Phone"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "3rem",
-                },
-              }}
-            />
-
-            <Box>
-              <Button
-                onClick={onSubmitClick}
-                variant="contained"
-                sx={{ background: "#0054FF", borderRadius: "3rem" }}
-              >
-                Submit
-              </Button>
-            </Box>
-          </Stack>
-        </Box>
-      </Modal>
+      {/* registration Modal */}
+      {openEnquiryForm ? <Register formType={"enquiry"} open={openEnquiryForm} onClose={handleCloseEnquiryForm}/> : null }
       {/* registration Modal */}
 
-      <Snackbar
-        open={openToast}
-        autoHideDuration={1000}
-        message="Your request has been sent to our team."
-        action={action}
-      ></Snackbar>
+      {/* BrochureForm Modal */}
+      {openBrochureForm ? <Register formType={"brochure"} open={openBrochureForm} onClose={handleCloseBrochureForm}/> : null }
+      {/* BrochureForm Modal */}
+
     </>
   );
 }
