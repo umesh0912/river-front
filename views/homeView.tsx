@@ -94,7 +94,7 @@ export default function HomeView() {
       pointThree: "Composite Marble Window Frames",
       pointFour: "Elegant Laminated Door with a Godrej Lock",
       pointFive: "Sanitary and Bathroom Fitting from Jaguar",
-      link: <Image src={test} height={200} width={400} alt="floorPLan" layout="responsive"/>,
+      link: <Image src={MyRiver6} height={200} width={400} alt="floorPLan" layout="responsive"/>,
     },
     {
       id: 3,
@@ -105,7 +105,7 @@ export default function HomeView() {
       pointThree: "Landscaped Garden with Fountain & Water Bodie",
       pointFour: "Fully Furnished Studio Furniture & Gadgets",
       pointFive: "Open parking",
-      link: <Image src={test} height={200} width={400} alt="floorPLan" layout="responsive"/>,
+      link: <Image src={MyRiver5} height={200} width={400} alt="floorPLan" layout="responsive"/>,
     },
   ];
 
@@ -194,13 +194,13 @@ export default function HomeView() {
       icon: <Image src={Music} height={120} width={120} alt="gym" />,
     },
   ];
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(null);
   const [openEnquiryForm, setOpenEnquiryForm] = useState(false);
   const [openBrochureForm, setOpenBrochureForm] = useState(false);
   
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = (imageElement: any) => setOpen(imageElement);
+  const handleClose = () => setOpen(null);
   const handleOpenEnquiryForm = () => setOpenEnquiryForm(true);
   const handleCloseEnquiryForm = () => setOpenEnquiryForm(false);
 
@@ -491,19 +491,19 @@ export default function HomeView() {
                   </Typography>
                 </Stack>
 
-                <Button variant="contained" onClick={handleOpen}>
+                <Button variant="contained" onClick={() => handleOpen(item.link)}>
                   View More
                 </Button>
               </Stack>
             </Paper>
           </Grid>
         ))}
-        {floorPlaningData.map((item) => (
-          <Box>
+        {/* {floorPlaningData.map((item) => ( */}
+        {open ? <Box>
             <Modal
               aria-labelledby="transition-modal-title"
               aria-describedby="transition-modal-description"
-              open={open}
+              open={true}
               onClose={handleClose}
               closeAfterTransition
               slots={{ backdrop: Backdrop }}
@@ -513,14 +513,14 @@ export default function HomeView() {
                 },
               }}
             >
-              <Fade in={open}>
+              <Fade in={true}>
                 <Box sx={style}>
-                  <Box sx={{ textAlign: "center" }}>{item.link}</Box>
+                  <Box sx={{ textAlign: "center" }}>{open}</Box>
                 </Box>
               </Fade>
             </Modal>
-          </Box>
-        ))}
+          </Box> : null}
+        {/* ))} */}
       </Grid>
       {/* floor plan */}
 
