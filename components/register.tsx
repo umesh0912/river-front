@@ -132,6 +132,8 @@ export default function FormDialog(props: IProps) {
 		setSnackBar(false);
 	};
 
+	const Title = props.formType === 'enquiry' ? 'Enquiry Form' : 'Download Brochure';
+
   return (
     <Dialog 
         open={props.open} 
@@ -142,7 +144,7 @@ export default function FormDialog(props: IProps) {
     >
         <DialogTitle 
         sx={{'textAlign':'center', fontSize:'1rem',color: 'black'}}
-        >{showOtpContent ? 'Enter Otp' : 'Register Now'}</DialogTitle>
+        >{showOtpContent ? 'Enter Otp' : Title}</DialogTitle>
 					<>{
 						showOtpContent ? <><DialogContent>
 							<OtpInput

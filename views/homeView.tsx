@@ -267,6 +267,7 @@ export default function HomeView() {
       <Grid
         container
         pb="5rem"
+        id="AboutUs"
         sx={{
           display: "flex",
           alignItems: "center",
@@ -440,6 +441,7 @@ export default function HomeView() {
             variant="h1"
             textAlign="center"
             py="2rem"
+            id="FloorPlan"
           >
             Floor Plans
           </Typography>
@@ -530,6 +532,7 @@ export default function HomeView() {
             py="2rem"
             variant="h1"
             textAlign="center"
+            id="Amenities"
           >
             Amenities
           </Typography>
@@ -553,6 +556,7 @@ export default function HomeView() {
             py="2rem"
             variant="h1"
             textAlign="center"
+            id="Gallery"
           >
             Gallery
           </Typography>

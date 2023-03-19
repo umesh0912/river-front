@@ -39,22 +39,22 @@ const navItems = [
   {
     id: 2,
     title: "About Us",
-    link: "#",
+    link: "#AboutUs",
   },
   {
     id: 3,
     title: "Floor Plan",
-    link: "#",
+    link: "#FloorPlan",
   },
   {
     id: 4,
     title: "Amenities",
-    link: "#",
+    link: "#Amenities",
   },
   {
     id: 5,
     title: "Gallery",
-    link: "#",
+    link: "#Gallery",
   }
 ];
 
@@ -109,7 +109,7 @@ export default function Layout(props: Props) {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Link passHref href={item.link}>
-                <Button key={item.id} sx={{ color: "#000" }}>
+                <Button key={item.id} sx={{ color: "#000", textTransform: 'capitalize' }}>
                   {item.title}
                 </Button>
               </Link>
