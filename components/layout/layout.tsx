@@ -19,10 +19,10 @@ import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 
 // images
-import BrandLogo from "../../public/images/brandlogo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import Grid from "@mui/material/Grid";
+import BrandLogo1 from "../../public/images/brandLogo.png";
 
 interface Props {
   window?: () => Window;
@@ -55,12 +55,7 @@ const navItems = [
     id: 5,
     title: "Gallery",
     link: "#",
-  },
-  {
-    id: 6,
-    title: "Location",
-    link: "#",
-  },
+  }
 ];
 
 export default function Layout(props: Props) {
@@ -73,7 +68,7 @@ export default function Layout(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Image src={BrandLogo} height={50} width={150} alt="BrandLogo" />
+      <Image src={BrandLogo1} height={50} width={150} alt="BrandLogo" />
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -109,7 +104,7 @@ export default function Layout(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <Image src={BrandLogo} height={48} width={190} alt="BrandLogo" />
+            <Image src={BrandLogo1} height={90} width={190} alt="BrandLogo" />
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (

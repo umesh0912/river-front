@@ -8,6 +8,13 @@ import Layout from "@/components/layout/layout";
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>River Front</title>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+        </style>
+      </Head>
       <Layout>
         <HomeView />
       </Layout>
