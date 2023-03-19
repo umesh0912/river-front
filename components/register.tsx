@@ -44,7 +44,12 @@ export default function FormDialog(props: IProps) {
   };
 
 	const handleOtpSubmit = async () => {
-		
+		if(OTP.length < 6) {
+			setSnackBar(true);
+			setSnackBarMessage("please enter otp")
+			setSnackType("error")
+			return;
+		}
 		const response: any = await axios.post(`${apiUrl}api/verify/verifyOtp`,{
 			email,
 			otp: OTP
@@ -57,6 +62,7 @@ export default function FormDialog(props: IProps) {
 			if(props.formType === 'brochure') {
 				downloadFile(`${window.location.origin}/pdfs/Riverfront.pdf`, 'Riverfront.pdf');
 			}
+			props.onClose()
 		}else {
 			setSnackBar(true);
 			setSnackBarMessage(response.data.message)
