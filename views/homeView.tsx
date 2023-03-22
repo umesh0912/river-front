@@ -46,6 +46,26 @@ import MyRiver8 from "../public/images/MyRiver8.jpg";
 import LocationLeft from "../public/images/location-left.jpg";
 import LocationRight from "../public/images/location-right.jpg";
 
+import MyRiverP1 from "../public/images/MyRiverP1.jpg";
+import MyRiverP2 from "../public/images/MyRiverP2.jpg";
+import MyRiverP3 from "../public/images/MyRiverP3.jpg";
+import MyRiverP4 from "../public/images/MyRiverP4.jpg";
+import MyRiverP5 from "../public/images/MyRiverP5.jpg";
+
+const PlanMap = {
+  1: {
+    img1: MyRiverP1,
+    img2: MyRiverP2
+  },
+  2: {
+    img1: MyRiverP3,
+    img2: MyRiverP4
+  },
+  3: {
+    img1: MyRiverP5
+  }
+
+}
 import Register from "@/components/register";
 
 const style = {
@@ -58,6 +78,8 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  height: '90%',
+  overflowY:'scroll',
 };
 
 const style2 = {
@@ -194,7 +216,7 @@ export default function HomeView() {
       icon: <Image src={Music} height={120} width={120} alt="gym" />,
     },
   ];
-  const [open, setOpen] = useState(null);
+  const [open, setOpen] = useState<number | null>(null);
   const [openEnquiryForm, setOpenEnquiryForm] = useState(false);
   const [openBrochureForm, setOpenBrochureForm] = useState(false);
   
@@ -207,6 +229,29 @@ export default function HomeView() {
   const handleOpenBrochureForm = () => setOpenBrochureForm(true);
   const handleCloseBrochureForm = () => setOpenBrochureForm(false);
 
+  const PlanMapImages = (pprops: {
+    id: number
+  }) => {
+    const PlanMap: {
+      [s: number] : any
+    } = {
+      1: (
+        <>
+          <Image src={MyRiverP1} height={200} width={400} alt="floorPLan" layout="responsive"/>
+          <Image src={MyRiverP2} height={200} width={400} alt="floorPLan" layout="responsive"/>
+        </>
+      ),
+      2: (
+        <>
+          <Image src={MyRiverP3} height={200} width={400} alt="floorPLan" layout="responsive"/>
+          <Image src={MyRiverP4} height={200} width={400} alt="floorPLan" layout="responsive"/>
+        </>
+      ),
+      3: <Image src={MyRiverP5} height={200} width={400} alt="floorPLan" layout="responsive"/>
+    }
+
+    return PlanMap[pprops.id];
+  }
   return (
     <>
       {/* intro */}
@@ -491,7 +536,7 @@ export default function HomeView() {
                   </Typography>
                 </Stack>
 
-                <Button variant="contained" onClick={() => handleOpen(item.link)}>
+                <Button variant="contained" onClick={() => handleOpen(item.id)}>
                   View More
                 </Button>
               </Stack>
@@ -515,7 +560,9 @@ export default function HomeView() {
             >
               <Fade in={true}>
                 <Box sx={style}>
-                  <Box sx={{ textAlign: "center" }}>{open}</Box>
+                  <Box sx={{ textAlign: "center" }}>
+                    <PlanMapImages id={open} />
+                  </Box>
                 </Box>
               </Fade>
             </Modal>
